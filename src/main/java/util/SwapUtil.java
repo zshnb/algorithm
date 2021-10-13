@@ -6,4 +6,10 @@ public class SwapUtil {
         nums[a] = nums[b];
         nums[b] = temp;
     }
+
+    public static void swap(char[] nums, int a, int b) {
+        char temp = nums[a];
+        nums[a] = nums[b];
+        nums[b] = temp;
+    }
 }
