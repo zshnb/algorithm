@@ -1,6 +1,5 @@
-package binary;
+package search;
 
-import search.BinarySearch;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
