@@ -11,4 +11,12 @@ public class BaseTest {
             Assertions.assertEquals(expect.get(i), actual.get(i));
         }
     }
+
+    void printLinkedList(ListNode head) {
+        while (head != null) {
+            System.out.printf("%d -> ", head.val);
+            head = head.next;
+        }
+        System.out.println();
+    }
 }
