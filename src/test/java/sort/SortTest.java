@@ -15,7 +15,7 @@ public class SortTest {
     private int size;
     @BeforeEach
     public void before() {
-        size = 10000;
+        size = 100000;
         mills = System.currentTimeMillis();
         nums = ArrayUtil.generateRandomArray(size, 0, 200000);
         copied = new int[nums.length];
@@ -40,5 +40,12 @@ public class SortTest {
         System.arraycopy(nums, 0, copied, 0, nums.length);
         InsertionSort insertionSort = new InsertionSort();
         insertionSort.sort(copied);
+    }
+
+    @Test
+    public void mergeSort() {
+        System.arraycopy(nums, 0, copied, 0, nums.length);
+        MergeSort mergeSort = new MergeSort();
+        mergeSort.sort(copied);
     }
 }
