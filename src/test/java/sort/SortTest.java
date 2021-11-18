@@ -48,4 +48,11 @@ public class SortTest {
         MergeSort mergeSort = new MergeSort();
         mergeSort.sort(copied);
     }
+
+    @Test
+    public void quickSort() {
+        System.arraycopy(nums, 0, copied, 0, nums.length);
+        QuickSort quickSort = new QuickSort();
+        quickSort.sort(copied);
+    }
 }
