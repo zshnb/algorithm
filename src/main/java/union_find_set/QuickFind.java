@@ -1,7 +1,7 @@
 package union_find_set;
 
 public class QuickFind {
-    // 元素下标表示元素所在组
+    // 数组值表示所在组，相同组为联通
     private int[] ids;
 
     public QuickFind(int n) {
