@@ -18,6 +18,7 @@ public class QuickUnion {
     // 查找给定下标的根节点
     public int find(int index) {
         while (index != parent[index]) {
+            parent[index] = parent[parent[index]]; // 路径压缩，当父节点不是根节点时，将父节点指向父父节点
             index = parent[index];
         }
         return index;
