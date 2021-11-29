@@ -1,6 +1,7 @@
 package leetcode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -10,6 +11,7 @@ public class CombinationSum39 {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
         List<Integer> path = new ArrayList<>();
+        Arrays.sort(candidates);
         recursive(result, path, target, candidates, 0);
         return result;
     }
