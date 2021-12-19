@@ -9,21 +9,21 @@ import org.junit.jupiter.api.Test;
 import util.ArrayUtil;
 
 public class SortTest {
-    private long mills = 0;
+    private long millis = 0;
     private int[] nums;
     private int[] copied;
     private int size;
     @BeforeEach
     public void before() {
         size = 100000;
-        mills = System.currentTimeMillis();
+        millis = System.currentTimeMillis();
         nums = ArrayUtil.generateRandomArray(size, 0, 200000);
         copied = new int[nums.length];
     }
 
     @AfterEach
     public void after() {
-        System.out.println(System.currentTimeMillis() - mills + "ms");
+        System.out.println(System.currentTimeMillis() - millis + "ms");
         Arrays.sort(nums);
         Assertions.assertArrayEquals(nums, copied);
     }
