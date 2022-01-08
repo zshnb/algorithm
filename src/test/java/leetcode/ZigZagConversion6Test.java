@@ -8,7 +8,7 @@ public class ZigZagConversion6Test {
 
 	@Test
 	public void test() {
-		Assertions.assertEquals("A", instance.convert("AB", 1));
+		Assertions.assertEquals("AB", instance.convert("AB", 1));
 		Assertions.assertEquals("PAHNAPLSIIGYIR", instance.convert("PAYPALISHIRING", 3));
 	}
 }
