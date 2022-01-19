@@ -26,6 +26,7 @@ public class FindFirstAndLastPositionOfElementInSortedArray34 {
         return position;
     }
 
+    // todo
     public int[] searchRange2(int[] nums, int target) {
         if (nums.length == 1 && nums[0] == target) {
             return new int[]{0, 0};
