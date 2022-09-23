@@ -11,13 +11,4 @@ public class MergeKSortedLists23Test {
         ListNode node3 = new ListNode(2, new ListNode(6));
         obj.mergeKLists(new ListNode[]{node1, node2, node3});
     }
-
-    @Test
-    public void successful2() {
-        MergeKSortedLists23 obj = new MergeKSortedLists23();
-        ListNode node1 = new ListNode(1, new ListNode(4, new ListNode(5)));
-        ListNode node2 = new ListNode(1, new ListNode(3, new ListNode(4)));
-        ListNode node3 = new ListNode(2, new ListNode(6));
-        obj.mergeKLists2(new ListNode[]{node1, node2, node3});
-    }
 }
