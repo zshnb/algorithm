@@ -1,64 +1,21 @@
 package leetcode;
 
-import java.util.Arrays;
-
+/**
+ * 思路1：使用计数数组，遍历原数组，把大于0的数在计数数组对应下标+1，然后遍历计数数组，返回第一个值为的下标
+ * */
 public class FirstMissingPositive41 {
     public int firstMissingPositive(int[] nums) {
-        int firstMin = Integer.MAX_VALUE;
-        int secondMin = Integer.MAX_VALUE;
-        int max = Integer.MIN_VALUE;
+        int[] freq = new int[100000];
         for (int num : nums) {
-            if (num > 0) {
-                if (num < firstMin) {
-                    secondMin = firstMin;
-                    firstMin = num;
-                } else if (num < secondMin) {
-                    secondMin = num;
-                }
-                if (num > max) {
-                    max = num;
-                }
+            if (num > 0 && num < 100000) {
+                freq[num] += 1;
             }
         }
-        if (firstMin > 1) {
-            return 1;
-        }
-        if (max - firstMin == nums.length - 1) {
-            return max + 1;
-        }
-        if (secondMin - firstMin == 1) {
-            return secondMin + 1;
-        } else {
-            return firstMin + 1;
-        }
-    }
-
-    public int firstMissingPositive2(int[] nums) {
-        if (nums.length == 1) {
-            if (nums[0] <= 0) {
-                return 1;
-            }
-            return nums[0] > 1 ? 1 : nums[0] + 1;
-        }
-        Arrays.sort(nums);
-        if (nums[nums.length - 1] <= 0) {
-            return 1;
-        }
-        int positiveIndex = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] > 0) {
-                positiveIndex = i;
-                break;
+        for (int i = 1; i < freq.length; i++) {
+            if (freq[i] == 0) {
+                return i;
             }
         }
-        for (int i = positiveIndex;i < nums.length;i++) {
-            if (nums[i] > 1) {
-                return 1;
-            }
-            if (i + 1 < nums.length && nums[i + 1] - nums[i] > 1) {
-                return nums[i] + 1;
-            }
-        }
-        return 1;
+        return nums.length + 1;
     }
 }
