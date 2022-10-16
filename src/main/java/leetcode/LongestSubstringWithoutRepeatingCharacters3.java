@@ -7,6 +7,7 @@ import java.util.*;
  * 每次循环都需要计算最长长度<br>
  * 思路2：双指针l，r，使用map记录当前双指针范围内每个字符出现的次数，每次循环检查r+1处字符是否存在map中，不存在的话r++，然后把新字符加入map，否则
  * 从map中把l处字符数减一，然后l++，循环直到l到字符串末尾
+ * 思路3：滑动窗口，当窗口右边界字符不重复时，把字符加入记录中，右边界增大，如果遇到重复，增大左边界，直到去除掉刚才重复的字符
  * */
 public class LongestSubstringWithoutRepeatingCharacters3 {
     public int lengthOfLongestSubstring1(String s) {
@@ -53,5 +54,28 @@ public class LongestSubstringWithoutRepeatingCharacters3 {
         }
 
         return max;
+    }
+
+    public int lengthOfLongestSubstring3(String s) {
+        Set<Character> existChars = new HashSet<>();
+        int left = 0, right = 0;
+        int maxLength = -1;
+        while (right < s.length()) {
+            char ch = s.charAt(right);
+            if (existChars.contains(ch)) {
+                maxLength = Math.max(maxLength, right - left);
+                while (existChars.contains(ch)) {
+                    char leftCh = s.charAt(left);
+                    existChars.remove(leftCh);
+                    left += 1;
+                }
+                right = left;
+                existChars.clear();
+            } else {
+                existChars.add(ch);
+                right += 1;
+            }
+        }
+        return Math.max(maxLength, right - left);
     }
 }

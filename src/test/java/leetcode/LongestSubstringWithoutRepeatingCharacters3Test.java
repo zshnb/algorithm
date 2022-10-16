@@ -26,4 +26,15 @@ public class LongestSubstringWithoutRepeatingCharacters3Test {
         Assertions.assertEquals(3, instance.lengthOfLongestSubstring2("pwwkew"));
         Assertions.assertEquals(1, instance.lengthOfLongestSubstring2("bbbbb"));
     }
+
+    @Test
+    public void test3() {
+        Assertions.assertEquals(3, instance.lengthOfLongestSubstring3("abcb"));
+        Assertions.assertEquals(2, instance.lengthOfLongestSubstring3("aab"));
+        Assertions.assertEquals(3, instance.lengthOfLongestSubstring3("aabaab!bb"));
+        Assertions.assertEquals(2, instance.lengthOfLongestSubstring3("au"));
+        Assertions.assertEquals(3, instance.lengthOfLongestSubstring3("abcabcbb"));
+        Assertions.assertEquals(3, instance.lengthOfLongestSubstring3("pwwkew"));
+        Assertions.assertEquals(1, instance.lengthOfLongestSubstring3("bbbbb"));
+    }
 }
